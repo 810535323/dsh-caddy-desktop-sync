@@ -1,0 +1,63 @@
+{
+  "name": "dsh-caddy-desktop-sync",
+  "version": "0.2.0",
+  "description": "Synchronize a Caddy loopback upstream with the DSH Desktop web port",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "license": "AGPL-3.0-or-later",
+  "author": "810535323",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/810535323/dsh-caddy-desktop-sync.git"
+  },
+  "homepage": "https://github.com/810535323/dsh-caddy-desktop-sync#readme",
+  "bugs": {
+    "url": "https://github.com/810535323/dsh-caddy-desktop-sync/issues"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "caddy",
+    "reverse-proxy"
+  ],
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": "0.2.1-rc.5 || 0.2.2-rc.1"
+  },
+  "files": [
+    "index.js",
+    "config.js",
+    "caddy-sync.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "node node_modules/eslint/bin/eslint.js . && node node_modules/prettier/bin/prettier.cjs --check . && node --test tests/*.test.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "3.18.5"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.5"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.1.0",
+    "eslint": "^10.14.0",
+    "prettier": "^3.9.10"
+  },
+  "packageManager": "pnpm@11.28.5"
+}
